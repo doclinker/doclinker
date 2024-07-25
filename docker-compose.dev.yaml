@@ -38,6 +38,17 @@ services:
     volumes:
       - ./.volumes/users-db:/data/db
 
+
+  doctor-db:
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: doclinker
+      MONGO_INITDB_ROOT_PASSWORD: doclinker
+
+  doctor:
+    build:
+      context
   amqp:
     image: rabbitmq:management
     ports:

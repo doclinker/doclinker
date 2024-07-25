@@ -1,0 +1,15 @@
+FROM node:20-alpine
+
+WORKDIR /common
+
+COPY ./common/package.json .
+RUN npm install
+COPY ./common .
+
+WORKDIR /app
+
+COPY ./doctor/package.json
+RUN npm install
+COPY ./doctor
+
+CMD ["npm", "start"]
